@@ -19,3 +19,11 @@ spec:
           image: nginx
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: local-pvc
+      volumes:
+         - name: local-pvc
+           persistentVolumeClaim:
+             claimName: surya-pvc
+            
