@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: surya-cronjob
+  namespace: surya-ns
+spec:
+  schedule: "*/1 * * * *"  # every 5 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: surya-cronjob-con
+            image: busybox
+            command: ["echo", "Hello from CronJob"]
+          restartPolicy: Never
+
