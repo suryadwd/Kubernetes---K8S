@@ -1,0 +1,18 @@
+#job is used to perform only a one task. it ensures that a pod completes successfully
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: surya-job
+  namespace: surya-ns
+spec:
+  template:
+    metadata:
+      name: surya-job-pod
+    spec:
+      containers:
+        - name: surya-job-con
+          image: busybox
+          command: ["echo", "You are doing good suraj"]
+      restartPolicy: Never
+

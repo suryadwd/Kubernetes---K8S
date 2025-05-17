@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: surya-dev
+  namespace: surya-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: surya-dev-app
+  template:
+    metadata:
+      name: surya-dev-app
+      labels:
+        app: surya-dev-app
+    spec:
+      containers:
+        - name: surya-dev-app-con
+          image: nginx
+          ports:
+            - containerPort: 80

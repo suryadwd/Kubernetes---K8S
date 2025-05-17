@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: surya-daemon
+  namespace: surya-ns
+spec:
+  selector:
+    matchLabels:
+      app: surya-daemon-app
+  template:
+    metadata:
+      name: surya-daemon-pod
+      labels:
+        app: surya-daemon-app
+    spec:
+      containers:
+        - name: surya-daemon-con
+          image: nginx
+          ports:
+            - containerPort: 80
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: surya-reps
+  namespace: surya-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: surya-reps-app
+  template:
+    metadata:
+      name: surya-reps-pod
+      labels:
+        app: surya-reps-app
+    spec:
+      containers:
+        - name: surya-reps-con
+          image: nginx
+          ports:
+            - containerPort: 80
+
