@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-dep
+  namespace: apache-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache-label
+  template:
+    metadata:
+      name: apache-pod  # not needed as these are assign randomlly
+      labels:
+        app: apache-label
+    spec:
+      containers:
+        - name: apache-con
+          image: httpd:latest
+          ports:
+            - containerPort: 80
+
+     
