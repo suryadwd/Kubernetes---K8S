@@ -1,0 +1,3 @@
+[submodule "HPA-apache-k8s/autoscaler"]
+	path = HPA-apache-k8s/autoscaler
+	url = https://github.com/suryadwd/Kubernetes---K8S.git
